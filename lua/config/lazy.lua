@@ -15,6 +15,18 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.lang.json" },
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins
+    {
+      import = "lazyvim.plugins.extras.coding.copilot",
+      opts = {
+        suggestion = { enabled = true },
+        panel = { enabled = true },
+        filetypes = {
+          markdown = true,
+          help = true,
+        },
+      },
+    },
+    { import = "lazyvim.plugins.extras.lang.go" },
     { import = "plugins" },
   },
   defaults = {
