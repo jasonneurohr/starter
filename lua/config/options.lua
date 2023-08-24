@@ -8,3 +8,8 @@ vim.opt.tabstop = 2 -- number of visual spaces per TAB
 vim.opt.softtabstop = 2 -- number of spaces in tab when editing
 vim.opt.shiftwidth = 2 -- number of spaces to use for autoindent
 vim.opt.expandtab = true -- use spaces instead of tabs
+
+-- Providers
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
