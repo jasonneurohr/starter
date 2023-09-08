@@ -22,6 +22,7 @@ require("lazy").setup({
 
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins
+    --
 
     {
       import = "lazyvim.plugins.extras.coding.copilot",
@@ -165,6 +166,45 @@ require("lazy").setup({
       },
     },
     { import = "lazyvim.plugins.extras.lang.json" },
+    {
+      -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTIN_CONFIG.md#arguments
+      -- https://www.mankier.com/1/shfmt
+      "jose-elias-alvarez/null-ls.nvim",
+      opts = function()
+        local nls = require("null-ls")
+        return {
+          sources = {
+            nls.builtins.formatting.shfmt.with({
+              extra_args = { "-i", "2", "-ci" },
+            }),
+          },
+        }
+      end,
+      -- dependencies = {
+      --   {
+      --     "jay-babu/mason-null-ls.nvim",
+      --     cmd = { "NullLsInstall", "NullLsUninstall" },
+      --     opts = { handlers = {} },
+      --   },
+      -- },
+      -- event = "User BaseFile",
+      -- opts = function()
+      --   local nls = require("null-ls")
+      --   return {
+      --     sources = {
+      --       nls.builtins.formatting.beautysh.with({
+      --         command = "beautysh",
+      --         args = {
+      --           "--indent-size",
+      --           "2",
+      --           "$FILENAME",
+      --         },
+      --       }),
+      --     },
+      --     on_attach = require("base.utils.lsp").on_attach, -- breaks it
+      --   }
+      -- end,
+    },
     { import = "plugins" },
   },
   defaults = {
