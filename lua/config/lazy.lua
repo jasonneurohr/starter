@@ -169,9 +169,10 @@ require("lazy").setup({
     {
       -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTIN_CONFIG.md#arguments
       -- https://www.mankier.com/1/shfmt
-      "jose-elias-alvarez/null-ls.nvim",
+      -- "jose-elias-alvarez/null-ls.nvim",
+      "nvimtools/none-ls.nvim",
       opts = function()
-        local nls = require("null-ls")
+        local nls = require("none-ls")
         return {
           sources = {
             nls.builtins.formatting.shfmt.with({
