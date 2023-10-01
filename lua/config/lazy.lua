@@ -20,7 +20,10 @@ require("lazy").setup({
         end
       end,
     },
-
+    -- {
+    --   "folke/which-key.nvim",
+    --   enabled = false,
+    -- },
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins
     --
