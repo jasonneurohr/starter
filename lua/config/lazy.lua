@@ -57,6 +57,18 @@ require("lazy").setup({
       },
     },
     {
+      "nvim-neo-tree/neo-tree.nvim",
+      opts = {
+        filesystem = {
+          filtered_items = {
+            visible = true,
+            hide_dot_files = false,
+            hide_gitignored = false,
+          },
+        },
+      },
+    },
+    {
       import = "lazyvim.plugins.extras.lang.go",
       opts = function(_, opts)
         vim.list_extend(opts.ensure_installed, {
