@@ -10,7 +10,10 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
-    { "LazyVim/LazyVim",                          import = "lazyvim.plugins" },
+    {
+      "LazyVim/LazyVim",
+      import = "lazyvim.plugins",
+    },
     {
       "folke/tokyonight.nvim",
       lazy = true,
@@ -20,11 +23,11 @@ require("lazy").setup({
           colors.comment = colors.orange
         end,
         on_highlights = function(highlights, colors)
-          highlights.LineNrAbove = { fg = '#51B3EC', bold = true }
-          highlights.LineNr = { fg = '#FFFFFF', bold = true }
-          highlights.CursorLineNr = { fg = '#FFFFFF', bold = true }
-          highlights.LineNrBelow = { fg = '#FB508F', bold = true }
-        end
+          highlights.LineNrAbove = { fg = "#51B3EC", bold = true }
+          highlights.LineNr = { fg = "#FFFFFF", bold = true }
+          highlights.CursorLineNr = { fg = "#FFFFFF", bold = true }
+          highlights.LineNrBelow = { fg = "#FB508F", bold = true }
+        end,
       },
     },
     { import = "lazyvim.plugins.extras.lang.json" },
@@ -55,6 +58,12 @@ require("lazy").setup({
           help = true,
         },
       },
+    },
+    {
+      -- confirm.nvim & nvim-lint default now. to work with
+      -- existing none-ls need to do this. Remove it when
+      -- no longer using none-ls
+      import = "lazyvim.plugins.extras.lsp.none-ls",
     },
     {
       "nvim-neo-tree/neo-tree.nvim",
@@ -177,7 +186,8 @@ require("lazy").setup({
           gopls = function(_, opts)
             -- workaround for gopls not supporting semanticTokensProvider
             -- https://github.com/golang/go/issues/54531#issuecomment-1464982242
-            require("lazyvim.util").on_attach(function(client, _)
+            -- require("lazyvim.util").on_attach(function(client, _) --  deprecated
+            require("lazyvim.util").lsp.on_attach(function(client, _)
               if client.name == "gopls" then
                 if not client.server_capabilities.semanticTokensProvider then
                   local semantic = client.config.capabilities.textDocument.semanticTokens
