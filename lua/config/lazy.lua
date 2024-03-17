@@ -49,7 +49,7 @@ require("lazy").setup({
 
     {
       import = "lazyvim.plugins.extras.coding.copilot",
-      enabled = false, -- Disabled for now
+      enabled = true, -- Enabled
       opts = {
         suggestion = { enabled = true },
         panel = { enabled = true },
