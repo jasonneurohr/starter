@@ -1,15 +1,8 @@
 return {
   "neovim/nvim-lspconfig",
   opts = {
-    -- format = {
-    --   timeout_ms = 1000,
-    -- },
-    -- servers = {
-    --   terraformls = {
-    --     flags = {
-    --       timeout = 1000,
-    --     },
-    --   },
+    servers = {
+      terraformls = {},
       gopls = {
         keys = {
           -- Workaround for the lack of a DAP strategy in neotest-go: https://github.com/nvim-neotest/neotest-go/issues/12
