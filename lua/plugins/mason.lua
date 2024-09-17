@@ -10,6 +10,7 @@ return {
       "delve",
       "mdformat",
       "yaml-language-server",
+      "helm-ls",
     })
   end,
 }
