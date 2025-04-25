@@ -11,6 +11,13 @@ return {
       "mdformat",
       "yaml-language-server",
       "helm-ls",
+      "docker-compose-language-service",
+      "markdownlint-cli2",
+      "markdown-toc",
+      "prettier",
+      "prettierd",
+      "yamlfmt",
+      "yamlfix",
     })
   end,
 }
